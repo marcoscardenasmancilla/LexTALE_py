@@ -16,7 +16,7 @@
 # 4. realiza contrastes post-hoc (Dunn's Test y Mann-Whitney U).
 # 5. calcula los tamaños del efecto para evaluar la significancia y magnitud de las diferencias encontradas. 
 # El objetivo del análisis es determinar si la experiencia en traducción afecta significativamente los tiempos de respuesta
-# y la precisión en la tarea LexTALE.
+# y la precisión en la tarea LexTALE (Lemhöfer y Broersma, 2012).
 # ==================================================================================================================================================
 
 # Carga de librerías
