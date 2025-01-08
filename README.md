@@ -6,7 +6,7 @@
 # Licence                   : AGPL V3
 # Copyright (c) 2024 Marcos H. Cárdenas Mancilla.
 # 
-# Descripción de LexTALE_PY:
+# Descripción de LexTALE_py:
 # Este código Python analiza datos de tiempos de respuesta (RT) y precisión en una tarea de decisión léxica en inglés, diferenciando entre participantes con y sin experiencia en traducción.
 # Características del script:
 # 1. preprocesa los datos, limpiando y transformando los RT y la proporción de respuestas correctas de palabras válidas y no válidas.
