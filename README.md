@@ -14,4 +14,4 @@
 # 3. realiza pruebas estadísticas, incluyendo Shapiro-Wilk, Levene, Mann-Whitney U y Kruskal-Wallis, para comparar las diferencias en RT entre grupos y también entre respuestas a palabras válidas y no válidas.
 # 4. realiza contrastes post-hoc (Dunn's Test y Mann-Whitney U).
 # 5. calcula los tamaños del efecto para evaluar la significancia y magnitud de las diferencias encontradas. 
-# El objetivo del análisis es determinar si la experiencia en traducción afecta significativamente los tiempos de respuesta y la precisión en la tarea LexTALE.
+# El objetivo del análisis es determinar si la experiencia en traducción afecta significativamente los tiempos de respuesta y la precisión en la tarea de decisión léxica.
