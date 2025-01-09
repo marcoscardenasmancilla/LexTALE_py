@@ -7,7 +7,7 @@
 # Copyright (c) 2024 Marcos H. Cárdenas Mancilla.
 # 
 # Descripción de LexTALE_PY:
-# Este código Python analiza datos de tiempos de respuesta (RT) y precisión en una tarea de decisión léxica en inglés, diferenciando entre participantes con y sin experiencia en traducción.
+# Este código Python analiza datos de tiempos de respuesta (RT) y precisión en una tarea de decisión léxica en inglés para determinar diferencias entre 2 grupos muestrales.
 # Características del script:
 # 1. preprocesa los datos, limpiando y transformando los RT y la proporción de respuestas correctas de palabras válidas y no válidas.
 ![% correct responses per word](https://github.com/user-attachments/assets/e6b310b2-9be1-4412-a441-b1d4df1a8bcc)
