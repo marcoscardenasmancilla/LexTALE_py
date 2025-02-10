@@ -27,7 +27,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-# 0. Descripcion de metadatos
+# 0. Descripción de metadatos
 metadata_description = [
     "participant: Identificador del participante.",
     "experience: Experiencia (e.g., sin = Exp_0; con = Exp_1)",
@@ -99,7 +99,7 @@ else:
         df_correct['response_time'] = pd.to_numeric(df_correct['response_time'], errors='coerce')
     df_correct = df_correct[df_correct['response_time'] > 0].dropna(subset=['response_time'])
 
-    # 2. Visualizacion
+    # 2. Visualización
     # Verificar la distribución de los tiempos de respuesta
     plt.figure(figsize=(15, 6))
     sns.histplot(df_correct['response_time'], kde=True, color='blue')
@@ -132,7 +132,7 @@ else:
     plt.tight_layout()
     plt.show()
 
-    # 3. Transformacion de datos
+    # 3. Transformación de datos
     # Apply Box-Cox transformation to response time
     rt_data = df_correct['response_time'].dropna()
     if (rt_data <= 0).any():
@@ -186,7 +186,7 @@ else:
     # Comparar resultados antes y después de eliminar el outlier
     comparison_results = []
 
-    # 4. Verificacion de normalidad
+    # 4. Verificación de normalidad
     # Antes de eliminar el outlier
     shapiro_stat_before, shapiro_p_value_before = shapiro(df_correct['response_time_boxcox'])
     comparison_results.append(['Shapiro-Wilk Test (Before Outlier Removal)', shapiro_stat_before, shapiro_p_value_before])
@@ -212,7 +212,7 @@ else:
     plt.tight_layout()
     plt.show()
 
-    # 5. Verificacion de homogeneidad de varianzas
+    # 5. Verificación de homogeneidad de varianzas
     experiences = df_correct['experience'].unique()
     # Antes de eliminar el outlier
     groups_before = [df_correct[df_correct['experience'] == exp]['response_time_boxcox'] for exp in experiences]
@@ -223,7 +223,7 @@ else:
     levene_stat_after, levene_p_value_after = levene(*groups_after)
     comparison_results.append(['Levene Test (After Outlier Removal)', levene_stat_after, levene_p_value_after])
 
-    # 6. Aplicacion de prueba de hipotesis
+    # 6. Aplicación de prueba de hipótesis
     # Mann-Whitney U test between words (valid) and non-words (invalid)
     invalid_rt = df_correct[df_correct['valid'] == False]['response_time_boxcox']
     # Antes de eliminar el outlier
@@ -255,12 +255,12 @@ else:
     plt.tight_layout()
     plt.show()
 
-    # Compare effect sizes across experiences
+    # Comparar tamaños del efecto entre niveles de experiencia
     print("\nComparison of Effect Sizes Across Experiences:")
     for result in comparison_results:
         print(result)
 
-    # 8. Estimacion de efectos
+    # 8. Estimación de efectos
     if mannwhitney_stat_after is not None:
         valid_n_after = len(valid_rt_no_outliers)
         invalid_n_after = len(invalid_rt)
@@ -274,7 +274,7 @@ else:
         print("Error: No se pudo calcular el tamaño del efecto debido a resultados faltantes en el Mann-Whitney U Test.")
 
 
-# Imprimir detalles del Mann-Whitney U Test (After Outlier Removal)
+# Imprimir detalles del Mann-Whitney U Test (Después de eliminación de punto atípico)
 print("\nDetalles del Mann-Whitney U Test (After Outlier Removal):")
 print(f"U-Statistic: {mannwhitney_stat_after}")
 print(f"P-Value: {mannwhitney_p_value_after}")
@@ -337,7 +337,7 @@ print(comparison_df_with_variables)
 effect_sizes = []
 
 # Calcular tamaños del efecto para los tests aplicables
-# Para el Mann-Whitney U Test (después de eliminar outliers)
+# Para el Mann-Whitney U Test (después de eliminar puntos atípicos)
 if mannwhitney_stat_after is not None:
     valid_n_after = len(valid_rt_no_outliers)
     invalid_n_after = len(invalid_rt)
@@ -349,14 +349,14 @@ if mannwhitney_stat_after is not None:
 else:
     effect_sizes.append('N/A')
 
-# Para el Kruskal-Wallis Test para experiencia
+# Para Kruskal-Wallis Test por "experiencia"
 if kruskal_stat > 0:
     eta_squared_kruskal = kruskal_stat / (len(df_correct_no_outliers) - 1)
     effect_sizes.append(eta_squared_kruskal)
 else:
     effect_sizes.append('N/A')
 
-# Para la interacción experiencia x valid (Kruskal-Wallis)
+# Para la interacción "experiencia" x "valid" (Kruskal-Wallis)
 if kruskal_stat_interaction > 0:
     eta_squared_interaction = kruskal_stat_interaction / (len(df_correct_no_outliers) - 1)
     effect_sizes.append(eta_squared_interaction)
